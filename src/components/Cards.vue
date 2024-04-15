@@ -18,7 +18,7 @@ export default {
 @use "../style/partials/variables" as *;
 .card {
     color: white;
-    width: calc(100% / 6);
+    width: calc(100% / 5);
     background-color: $brand-primary;
     .card-image {
         img{

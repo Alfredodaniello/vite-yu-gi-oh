@@ -1,8 +1,14 @@
 <script>
+import { store } from '../store.js';
 import Cards from './Cards.vue';
 export default {
     components: {
         Cards
+    },
+    data() {
+        return {
+            store
+        }
     },
     name: "CardsContainer"
 }
@@ -10,8 +16,8 @@ export default {
 
 <template>
 <div class="ms-container top"></div>
-<div class="ms-container">
-    <Cards></Cards>
+<div class="ms-container d-flex flex-wrap">
+    <Cards v-for="card in store.card"></Cards>
 </div>
 </template>
 
