@@ -15,10 +15,15 @@ export default {
 </script>
 
 <template>
-<div class="ms-container top mt-5"></div>
-<div class="ms-container d-flex flex-wrap justify-content-between">
-    <Cards v-for="card, index in store.card" :key="card.id" :cardsInfo="card"></Cards>
+<div class="general pt-5">
+    <div class="ms-container p-5">
+        <div class="top"></div>
+        <div class="d-flex flex-wrap justify-content-between">
+            <Cards v-for="card, index in store.card" :key="card.id" :cardsInfo="card"></Cards>
+        </div>
+    </div>
 </div>
+
 </template>
 
 <style scoped lang="scss">
@@ -30,6 +35,11 @@ export default {
 .ms-container{
     width: 1200px;
     margin: auto;
+    background-color: white;
+}
+
+.general {
+    background-color: $brand-primary;
 }
 
 </style>
