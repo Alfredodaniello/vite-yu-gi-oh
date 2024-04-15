@@ -15,9 +15,9 @@ export default {
 </script>
 
 <template>
-<div class="ms-container top"></div>
-<div class="ms-container d-flex flex-wrap">
-    <Cards v-for="card in store.card"></Cards>
+<div class="ms-container top mt-5"></div>
+<div class="ms-container d-flex flex-wrap justify-content-between">
+    <Cards v-for="card, index in store.card" :key="card.id" :cardsInfo="card"></Cards>
 </div>
 </template>
 

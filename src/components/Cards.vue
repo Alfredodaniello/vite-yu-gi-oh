@@ -1,16 +1,19 @@
 <script>
 export default {
-    name: "Cards"
+    name: "Cards",
+    props: {
+        cardsInfo : Object
+    }
 }
 </script>
 
 <template>
-<div class="card text-center">
+<div class="card text-center mb-3">
     <div class="card-image">
-        <img src="https://images.ygoprodeck.com/images/cards/34541863.jpg" alt="">
+        <img :src="'https://images.ygoprodeck.com/images/cards/' + cardsInfo.id + '.jpg'" alt="">
     </div>
-    <h5>ciao</h5>
-    <span>ciao</span>
+    <h5>{{cardsInfo.name}}</h5>
+    <span>{{ cardsInfo.archetype }}</span>
 </div>
 </template>
 
@@ -18,7 +21,7 @@ export default {
 @use "../style/partials/variables" as *;
 .card {
     color: white;
-    width: calc(100% / 5);
+    width: calc(100% / 5 - 30px);
     background-color: $brand-primary;
     .card-image {
         img{
