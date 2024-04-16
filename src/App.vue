@@ -5,12 +5,14 @@ import AppHeader from './components/AppHeader.vue';
 import Cards from './components/Cards.vue';
 import CardsContainer from './components/CardsContainer.vue';
 import AppLoader from './components/AppLoader.vue';
+import AppSearch from './components/AppSearch.vue';
 export default {
     components: {
         AppHeader,
         Cards,
         CardsContainer,
-        AppLoader
+        AppLoader,
+        AppSearch
     },
     data(){
         return{
@@ -44,6 +46,7 @@ export default {
     <AppHeader></AppHeader>
 </header>
 <main>
+    <AppSearch></AppSearch>
     <CardsContainer v-if="store.loading === false"></CardsContainer>
     <AppLoader v-else></AppLoader>
 </main>
