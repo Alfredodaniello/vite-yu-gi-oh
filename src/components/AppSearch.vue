@@ -14,8 +14,12 @@ export default {
             .then((response) => {
                 store.archetypes = response.data;
             })
-        }
+        },
+        resetFilter() {
+            store.filter = "";
+        },
     },
+    
     mounted() {
         this.getArchetypes();
     }
@@ -24,11 +28,12 @@ export default {
 
 <template>
 <div class="top d-flex align-items-center general pt-3">
-            <div class="select-container px-2">
+            <div class="select-container px-2 d-flex gap-3">
                 <select class="form-select" aria-label="Default select example" v-model="store.filter" @change="$emit('filterCards')">
                     <option value="">Scegli l'archetipo!</option>
                     <option v-for="archetype in store.archetypes" :value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
                 </select>
+                <button @click="resetFilter()">Reset</button>
             </div>
         </div>
 </template>

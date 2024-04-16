@@ -21,13 +21,13 @@ export default {
     },
     methods: {
         getCardsFromApi(){
+
             const queryParams = {};
-            let UrlApi = "https://db.ygoprodeck.com/api/v7/cardinfo.php";
+            let UrlApi = "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=40&offset=0";
 
             if(store.filter !== ""){
                 queryParams.archetype = store.filter
-            } else {
-                queryParams = ""
+                
             }
             
             axios.get(UrlApi, {
@@ -51,7 +51,7 @@ export default {
     <AppHeader></AppHeader>
 </header>
 <main>
-    <AppSearch  @filterCards="getCardsFromApi"></AppSearch>
+    <AppSearch  @filterCards="getCardsFromApi" @click="getCardsFromApi"></AppSearch>
     <CardsContainer v-if="store.loading === false"></CardsContainer>
     <AppLoader v-else></AppLoader>
 </main>
