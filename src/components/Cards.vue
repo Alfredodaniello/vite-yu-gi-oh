@@ -12,8 +12,8 @@ export default {
     <div class="card-image">
         <img :src="'https://images.ygoprodeck.com/images/cards/' + cardsInfo.id + '.jpg'" alt="">
     </div>
-    <h5>{{cardsInfo.name}}</h5>
-    <span>{{ cardsInfo.archetype }}</span>
+    <h5 class="pt-1">{{cardsInfo.name}}</h5>
+    <span class="pb-1" v-if="cardsInfo.archetype">{{ cardsInfo.archetype }}</span>
 </div>
 </template>
 
