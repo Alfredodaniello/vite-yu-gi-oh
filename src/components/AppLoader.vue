@@ -5,6 +5,6 @@ export default {
 </script>
 
 <template>
-<div class="text-center">Caricando........</div>
+<div class="text-center"><h1>Scegli un Archetipo!</h1></div>
 </template>
 

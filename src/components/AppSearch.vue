@@ -1,17 +1,33 @@
 <script>
+import axios from 'axios';
+import { store } from '../store.js';
 export default {
-    name: "AppSearch"
+    name: "AppSearch",
+    data() {
+        return {
+            store
+        };
+    },
+    methods: {
+        getArchetypes() {
+            axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+            .then((response) => {
+                store.archetypes = response.data;
+            })
+        }
+    },
+    mounted() {
+        this.getArchetypes();
+    }
 }
 </script>
 
 <template>
 <div class="top d-flex align-items-center general pt-3">
             <div class="select-container px-2">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <select class="form-select" aria-label="Default select example" v-model="store.filter" @change="$emit('filterCards')">
+                    <option value="">Scegli l'archetipo!</option>
+                    <option v-for="archetype in store.archetypes" :value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
                 </select>
             </div>
         </div>

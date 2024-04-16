@@ -19,7 +19,7 @@ export default {
     <div class="ms-container p-5">
         <div class="top d-flex align-items-center">
         </div>
-        <div class="d-flex flex-wrap justify-content-between">
+        <div class="d-flex flex-wrap card-container">
             <Cards v-for="card, index in store.card" :key="card.id" :cardsInfo="card"></Cards>
         </div>
     </div>
@@ -41,6 +41,10 @@ export default {
 
 .general {
     background-color: $brand-primary;
+}
+
+.card-container {
+    gap: calc(25px)
 }
 
 
